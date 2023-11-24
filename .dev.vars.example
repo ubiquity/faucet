@@ -1,0 +1,14 @@
+# Environment variables used for development build on `yarn start`
+
+# openzeppelin defender relay API key
+RELAY_KEY=
+# openzeppeling defender relay secret
+RELAY_SECRET=
+
+# supabase DB URL
+SUPABASE_URL=
+# supabase DB secret key
+SUPABASE_KEY=
+
+# fund amount in wei
+CLAIM_FEE=
