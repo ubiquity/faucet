@@ -43,7 +43,7 @@ export default {
       return makeRpcResponse({ error: { code: -32000, message: "No address provided" } }, 400);
     }
 
-    const { data } = await supabase.from("wallets").select("wallet_address").eq("wallet_address", ethAddress);
+    const { data } = await supabase.from("wallets").select("address").eq("address", ethAddress);
 
     if (!data || data.length === 0) {
       return makeRpcResponse({ error: { code: -32000, message: "Address not found" } }, 400);
@@ -52,7 +52,7 @@ export default {
     // Searching using github api might not return all users so I'm sticking to the db
     // this can be worked around if they change their registered wallet address
     // but it's inherently abuse-proof as to get a subsidy you must have a permit == need a contribution for 0.0003 eth/xdai
-    const { data: permits } = await supabase.from("permits").select("bounty_hunter_address").eq("bounty_hunter_address", ethAddress);
+    const { data: permits } = await supabase.from("permits").select("users(wallets(address))").eq("users.wallets.address", ethAddress);
 
     if (permits && permits.length > 0) {
       return makeRpcResponse({ error: { code: -32000, message: "Has likely been subsidized before." } }, 400);
