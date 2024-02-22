@@ -72,8 +72,8 @@ export default {
     const { data: permits } = await supabase
       .from("permits")
       .select("users(wallets(address))")
-      .eq("users.wallets.address", ethAddress)
-      .neq("users.wallets", null);
+      .not("users", "is", null)
+      .eq("users.wallets.address", ethAddress);
 
     if (permits && permits.length > 0) {
       return makeRpcResponse(
