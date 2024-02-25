@@ -21,7 +21,7 @@ RELAY_SECRET=
 # supabase DB URL
 SUPABASE_URL=
 # supabase DB secret key
-SUPABASE_KEY=
+SUPABASE_ANON_KEY=
 
 # fund amount in wei
 CLAIM_FEE=

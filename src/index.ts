@@ -7,7 +7,7 @@ export interface Env {
   RELAY_KEY: string;
   RELAY_SECRET: string;
   SUPABASE_URL: string;
-  SUPABASE_KEY: string;
+  SUPABASE_ANON_KEY: string;
   CLAIM_FEE: bigint;
 }
 
@@ -23,7 +23,7 @@ export default {
       return new Response("Relayer not configured", { status: 500 });
     }
 
-    if (!env.SUPABASE_URL || !env.SUPABASE_KEY) {
+    if (!env.SUPABASE_URL || !env.SUPABASE_ANON_KEY) {
       return new Response("Supabase not configured", { status: 500 });
     }
 
