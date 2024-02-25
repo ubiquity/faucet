@@ -31,7 +31,7 @@ export default {
       return new Response("Claim fee not configured", { status: 500 });
     }
 
-    const supabase = createClient(env.SUPABASE_URL, env.SUPABASE_KEY);
+    const supabase = createClient(env.SUPABASE_URL, env.SUPABASE_ANON_KEY);
 
     const { makeResponse, makeRpcResponse } = makeResponseFunc(
       request.headers.get("origin") || "",
